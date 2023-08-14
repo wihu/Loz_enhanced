@@ -7,6 +7,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 # enable_testing()
 
 # set(SOURCE main.cpp)
+add_definitions(-DDEBUGMODE)
 include_directories(${PROJECT_SOURCE_DIR}/Game)
 file(GLOB ALL_SOURCES "${PROJECT_SOURCE_DIR}/Game/Loz/*.cpp")
 message("ALL_SOURCES = ${ALL_SOURCES}")
