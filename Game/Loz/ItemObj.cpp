@@ -396,7 +396,7 @@ void Fire::SetY( int y )
 
 Point Fire::GetMiddle()
 {
-    Point p = { objX + 8, objY + 8 };
+    Point p = MakePoint(objX + 8, objY + 8);
     return p;
 }
 
@@ -2356,7 +2356,7 @@ void Whirlwind::Update()
     if ( player->GetState() != Player::Paused
         || World::GetWhirlwindTeleporting() == 0 )
     {
-        Point thisMiddle = { objX + 8, objY + 5 };
+        Point thisMiddle = MakePoint(objX + 8, objY + 5);
         Point playerMiddle = player->GetMiddle();
 
         if (   abs( thisMiddle.X - playerMiddle.X ) < 14

@@ -72,6 +72,11 @@ struct Point
     short   Y;
 };
 
+Point MakePoint(uint8_t x, uint8_t y)
+{
+    return {static_cast<short>(x), static_cast<short>(y)};
+}
+
 struct Cell
 {
     uint8_t Row;

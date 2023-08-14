@@ -493,11 +493,11 @@ Point Object::CalcObjMiddle()
 {
     if ( GetType() == Obj_Ganon )
     {
-        Point p = { GetX() + 0x10, GetY() + 0x10 };
+        Point p = MakePoint(GetX() + 0x10, GetY() + 0x10);
         return p;
     }
 
-    Point p = { GetX(), GetY() + 8 };
+    Point p = MakePoint(GetX(), GetY() + 8);
     ObjectAttr attr = World::GetObjectAttrs( type );
     if ( attr.GetHalfWidth() )
         p.X += 4;

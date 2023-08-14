@@ -5814,7 +5814,7 @@ void GleeokNeck::SetHP( int value )
 
 Point GleeokNeck::GetPartLocation( int partIndex )
 {
-    Point p = { parts[partIndex].x, parts[partIndex].y };
+    Point p = { static_cast<short>(parts[partIndex].x), static_cast<short>(parts[partIndex].y) };
     return p;
 }
 

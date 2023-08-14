@@ -618,7 +618,7 @@ Bounds Player::GetBounds()
 
 Point Player::GetMiddle()
 {
-    Point p = { objX + 8, objY + 8 };
+    Point p = MakePoint(objX + 8, objY + 8);
     return p;
 }
 
