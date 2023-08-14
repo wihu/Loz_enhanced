@@ -8,6 +8,7 @@
 #include "Common.h"
 #include "Graphics.h"
 
+ALLEGRO_DEBUG_CHANNEL("Loz")
 
 // Y determines the palette, X determines the color in the palette.
 // But, it looks like the minimum height of a bitmap is 16.
@@ -111,17 +112,20 @@ bool Graphics::Init()
 
     if ( !al_attach_shader_source_file( tileShader, ALLEGRO_VERTEX_SHADER, vsource ) )
     {
-        _RPT1( _CRT_WARN, "%s", al_get_shader_log( tileShader ) );
+        // _RPT1( _CRT_WARN, "%s", al_get_shader_log( tileShader ) );
+        ALLEGRO_WARN("%s", al_get_shader_log( tileShader ));
         return false;
     }
     if ( !al_attach_shader_source_file( tileShader, ALLEGRO_PIXEL_SHADER, psource ) )
     {
-        _RPT1( _CRT_WARN, "%s", al_get_shader_log( tileShader ) );
+        // _RPT1( _CRT_WARN, "%s", al_get_shader_log( tileShader ) );
+        ALLEGRO_WARN("%s", al_get_shader_log( tileShader ));
         return false;
     }
     if ( !al_build_shader( tileShader ) )
     {
-        _RPT1( _CRT_WARN, "%s", al_get_shader_log( tileShader ) );
+        // _RPT1( _CRT_WARN, "%s", al_get_shader_log( tileShader ) );
+        ALLEGRO_WARN("%s", al_get_shader_log( tileShader ));
         return false;
     }
 

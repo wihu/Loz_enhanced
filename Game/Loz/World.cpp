@@ -28,6 +28,7 @@
 #include "Sound.h"
 #include "SoundId.h"
 
+ALLEGRO_DEBUG_CHANNEL("Loz")
 
 enum
 {
@@ -6097,7 +6098,8 @@ void WorldImpl::LadderTileAction( int row, int col, TileInteraction interaction 
     if ( interaction != TInteract_Touch )
         return;
 
-    _RPT2( _CRT_WARN, "Touch water: %d, %d\n", row, col );
+    // _RPT2( _CRT_WARN, "Touch water: %d, %d\n", row, col );
+    ALLEGRO_WARN("Touch water: %d, %d\n", row, col);
 }
 
 void WorldImpl::RaftTileAction( int row, int col, TileInteraction interaction )
@@ -6107,7 +6109,8 @@ void WorldImpl::RaftTileAction( int row, int col, TileInteraction interaction )
     if ( interaction != TInteract_Cover )
         return;
 
-    _RPT2( _CRT_WARN, "Cover dock: %d, %d\n", row, col );
+    // _RPT2( _CRT_WARN, "Cover dock: %d, %d\n", row, col );
+    ALLEGRO_WARN("Cover dock: %d, %d\n", row, col);
 
     if ( World::GetItem( ItemSlot_Raft ) == 0 )
         return;
@@ -6126,7 +6129,8 @@ void WorldImpl::CaveTileAction( int row, int col, TileInteraction interaction )
         GotoStairs( behavior );
     }
 
-    _RPT2( _CRT_WARN, "Cover cave: %d, %d\n", row, col );
+    // _RPT2( _CRT_WARN, "Cover cave: %d, %d\n", row, col );
+    ALLEGRO_WARN("Cover cave: %d, %d\n", row, col);
 }
 
 void WorldImpl::StairsTileAction( int row, int col, TileInteraction interaction )
@@ -6137,13 +6141,18 @@ void WorldImpl::StairsTileAction( int row, int col, TileInteraction interaction 
     if ( GetMode() == Mode_Play )
         GotoStairs( TileBehavior_Stairs );
 
-    _RPT2( _CRT_WARN, "Cover stairs: %d, %d\n", row, col );
+    // _RPT2( _CRT_WARN, "Cover stairs: %d, %d\n", row, col );
+    ALLEGRO_WARN("Cover stairs: %d, %d\n", row, col);
 }
 
 void WorldImpl::GhostTileAction( int row, int col, TileInteraction interaction )
 {
     if ( interaction == TInteract_Push )
-        _RPT2( _CRT_WARN, "Push headstone: %d, %d\n", row, col );
+    {
+        // _RPT2( _CRT_WARN, "Push headstone: %d, %d\n", row, col );
+        ALLEGRO_WARN("Push headstone: %d, %d\n", row, col);
+    }
+        
 
     CommonMakeObjectAction( row, col, interaction, ghostCount, ghostCells, Obj_FlyingGhini );
 }
@@ -6151,7 +6160,10 @@ void WorldImpl::GhostTileAction( int row, int col, TileInteraction interaction )
 void WorldImpl::ArmosTileAction( int row, int col, TileInteraction interaction )
 {
     if ( interaction == TInteract_Push )
-        _RPT2( _CRT_WARN, "Push armos: %d, %d\n", row, col );
+    {
+        // _RPT2( _CRT_WARN, "Push armos: %d, %d\n", row, col );
+        ALLEGRO_WARN("Push armos: %d, %d\n", row, col);
+    }
 
     CommonMakeObjectAction( row, col, interaction, armosCount, armosCells, Obj_Armos );
 }
@@ -6228,7 +6240,8 @@ void WorldImpl::DoorTileAction( int row, int col, TileInteraction interaction )
 
     // Based on $91D6 and old implementation Player::CheckDoor.
 
-    _RPT2( _CRT_WARN, "Push door: %d, %d\n", row, col );
+    // _RPT2( _CRT_WARN, "Push door: %d, %d\n", row, col );
+    ALLEGRO_WARN("Push door: %d, %d\n", row, col);
 
     DoorType    doorType = World::GetDoorType( player->GetMoving() );
 
