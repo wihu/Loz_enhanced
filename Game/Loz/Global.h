@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include "Geom.h"
 
 typedef unsigned int uint;
 
@@ -56,31 +57,6 @@ enum
 
     OppositeVerticals   = VerticalMask,
     OppositeHorizontals = HorizontalMask,
-};
-
-struct Bounds
-{
-    uint16_t X;
-    uint16_t Y;
-    uint16_t Width;
-    uint16_t Height;
-};
-
-struct Point
-{
-    short   X;
-    short   Y;
-};
-
-Point MakePoint(uint8_t x, uint8_t y)
-{
-    return {static_cast<short>(x), static_cast<short>(y)};
-}
-
-struct Cell
-{
-    uint8_t Row;
-    uint8_t Col;
 };
 
 typedef uint8_t RSpot;
