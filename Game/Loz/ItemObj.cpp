@@ -275,6 +275,7 @@ void BlockObjBase::UpdateIdle()
             case Dir_Left:  targetPos = objX - World::MobTileWidth;   break;
             case Dir_Down:  targetPos = objY + World::MobTileHeight;  break;
             case Dir_Up:    targetPos = objY - World::MobTileHeight;  break;
+            case Dir_None: break;
             }
             World::SetMobXY( objX, objY, spec->floorMob1 );
             facing = dir;
@@ -1004,6 +1005,7 @@ void PlayerSwordShot::Update()
     case Flying:    UpdateFlying(); break;
     case Spreading: UpdateSpreading(); break;
     case Bounce:    UpdateBounce(); break;
+    default: break;
     }
 }
 
@@ -1093,6 +1095,7 @@ void FlyingRock::Update()
     {
     case Flying:    UpdateFlying(); break;
     case Bounce:    UpdateBounce(); break;
+    default: break;
     }
 }
 
@@ -1488,6 +1491,7 @@ void MagicWave::Update()
     {
     case Flying:    UpdateFlying(); break;
     case Bounce:    UpdateBounce(); break;
+    default: break;
     }
 }
 
@@ -1571,6 +1575,7 @@ void Arrow::Update()
     case Flying:    UpdateArrow();  break;
     case Spark:     UpdateSpark();  break;
     case Bounce:    UpdateBounce(); break;
+    default: break;
     }
 }
 

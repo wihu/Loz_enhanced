@@ -542,6 +542,8 @@ int GetNextRoomId( int curRoomId, Direction dir )
             return curRoomId;
         row++;
         break;
+    default:
+        break;
     }
 
     int nextRoomId = MakeRoomId( row, col );
@@ -4360,6 +4362,8 @@ void WorldImpl::UpdateScroll_LoadRoom()
         state.scroll.speedY = -ScrollSpeed;
         state.scroll.oldMapToNewMapDistY = -TileMapHeight;
         break;
+    default:
+        break;
     }
 
     state.scroll.oldRoomId = curRoomId;
@@ -6291,6 +6295,8 @@ void WorldImpl::DoorTileAction( int row, int col, TileInteraction interaction )
                 World::SetTriggeredDoorCmd( 8 );
             }
         }
+        break;
+    default:
         break;
     }
 }

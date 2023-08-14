@@ -42,6 +42,8 @@ bool IsPerpendicular( Direction dir1, Direction dir2 )
     case Dir_Down:
     case Dir_Up:
         return dir2 == Dir_Left || dir2 == Dir_Right;
+    default:
+        break;
     }
     return false;
 }
@@ -54,6 +56,8 @@ Direction GetOppositeDir( Direction dir )
     case Dir_Left:  return Dir_Right;
     case Dir_Down:  return Dir_Up;
     case Dir_Up:    return Dir_Down;
+    default:
+        break;
     }
     return Dir_None;
 }
@@ -216,6 +220,7 @@ void MoveSimple( int& x, int& y, Direction dir, int speed )
     case Dir_Left:  x -= speed; break;
     case Dir_Down:  y += speed; break;
     case Dir_Up:    y -= speed; break;
+    default: break;
     }
 }
 
@@ -227,6 +232,7 @@ void MoveSimple( uint8_t& x, uint8_t& y, Direction dir, int speed )
     case Dir_Left:  x -= speed; break;
     case Dir_Down:  y += speed; break;
     case Dir_Up:    y -= speed; break;
+    default: break;
     }
 }
 
@@ -236,12 +242,14 @@ void MoveSimple8( float& x, float& y, Direction dir, float speed )
     {
     case Dir_Right: x += speed; break;
     case Dir_Left:  x -= speed; break;
+    default: break;
     }
 
     switch ( dir & (Dir_Down | Dir_Up) )
     {
     case Dir_Down:  y += speed; break;
     case Dir_Up:    y -= speed; break;
+    default: break;
     }
 }
 
@@ -251,12 +259,14 @@ void MoveSimple8( int& x, int& y, Direction dir, int speed )
     {
     case Dir_Right: x += speed; break;
     case Dir_Left:  x -= speed; break;
+    default: break;
     }
 
     switch ( dir & (Dir_Down | Dir_Up) )
     {
     case Dir_Down:  y += speed; break;
     case Dir_Up:    y -= speed; break;
+    default: break;
     }
 }
 
@@ -266,12 +276,14 @@ void MoveSimple8( uint8_t& x, uint8_t& y, Direction dir, int speed )
     {
     case Dir_Right: x += speed; break;
     case Dir_Left:  x -= speed; break;
+    default: break;
     }
 
     switch ( dir & (Dir_Down | Dir_Up) )
     {
     case Dir_Down:  y += speed; break;
     case Dir_Up:    y -= speed; break;
+    default: break;
     }
 }
 
