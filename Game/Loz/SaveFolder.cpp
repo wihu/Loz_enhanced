@@ -35,7 +35,7 @@ static errno_t OpenFile( FILE** file, int slot, OpenMode mode )
     pathStr = al_path_cstr( path, ALLEGRO_NATIVE_PATH_SEP );
     _mkdir( pathStr );
 
-    sprintf_s( fileName, SaveFileNamePattern, slot );
+    snprintf( fileName, 32, SaveFileNamePattern, slot );
     al_set_path_filename( path, fileName );
 
     pathStr = al_path_cstr( path, ALLEGRO_NATIVE_PATH_SEP );
@@ -76,7 +76,7 @@ void SaveFolder::ReadSummaries( ProfileSummarySnapshot& summaries )
 
         if ( lenRead < 1 )
         {
-            memset( &summaries.Summaries[i], 0, sizeof ProfileSummary );
+            memset( &summaries.Summaries[i], 0, sizeof (ProfileSummary) );
         }
         else
         {

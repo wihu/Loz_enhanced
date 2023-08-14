@@ -973,7 +973,7 @@ void WorldImpl::LoadLevel( int level )
 {
     LevelDirectory::FixedString levelDirName = "";
 
-    sprintf_s( levelDirName, "levelDir_%d_%d.dat", profile.Quest, level );
+    snprintf( levelDirName, 32, "levelDir_%d_%d.dat", profile.Quest, level );
 
     Util::LoadList( levelDirName, &directory, 1 );
 

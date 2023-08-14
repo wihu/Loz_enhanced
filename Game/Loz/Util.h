@@ -119,7 +119,7 @@ namespace Util
         if ( err != 0 )
             return false;
 
-        fread( list, sizeof T, length, file );
+        fread( list, sizeof(T), length, file );
         fclose( file );
 
         return true;

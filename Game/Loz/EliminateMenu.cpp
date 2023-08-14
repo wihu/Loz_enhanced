@@ -51,7 +51,7 @@ void EliminateMenu::DeleteCurrentProfile()
 {
     Profile profile = { 0 };
     SaveFolder::WriteProfile( selectedIndex, profile );
-    memset( &summaries->Summaries[selectedIndex], 0, sizeof ProfileSummary );
+    memset( &summaries->Summaries[selectedIndex], 0, sizeof(ProfileSummary) );
     Sound::PlayEffect( SEffect_player_hit );
 }
 
