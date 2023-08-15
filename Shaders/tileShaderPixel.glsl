@@ -19,9 +19,9 @@ void main()
 {
     vec4 indexVec = texture2D( al_tex, varying_texcoord );
     float index = indexVec.r;
-    index += (0.5 / 16);
+    index += (0.5 / 16.0);
 
-    float palette = varying_color.r + (0.5 / 16);
+    float palette = varying_color.r + (0.5 / 16.0);
 
     // Keep in mind that 16x16 seems to be the smallest allowed texture
     vec2 palPos = vec2( index, palette );
