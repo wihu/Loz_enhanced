@@ -10,10 +10,15 @@
 #include "Input.h"
 #include "Sound.h"
 #include "World.h"
+#include "Debug.h"
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_image.h>
+#if defined(ALLEGRO_MACOSX)
+#include <allegro5/platform/alosx.h>
+#endif
 
+ALLEGRO_DEBUG_CHANNEL("Loz")
 
 const double FrameTime = 1 / 60.0;
 
@@ -210,6 +215,12 @@ bool MakeDisplay()
 
 ALLEGRO_CONFIG* LoadConfig()
 {
+#if defined(ALLEGRO_MACOSX)
+    ALLEGRO_PATH* path = _al_osx_get_path(ALLEGRO_EXENAME_PATH);
+    al_set_path_filename(path, "allegro5.cfg");
+    ALLEGRO_INFO("Loaded system config from: %s\n", al_path_cstr(path, '/'));
+#endif
+
     ALLEGRO_CONFIG* config = nullptr;
     ALLEGRO_PATH* configPath = al_get_standard_path( ALLEGRO_USER_SETTINGS_PATH );
 
@@ -221,6 +232,7 @@ ALLEGRO_CONFIG* LoadConfig()
         if ( configPathStr != nullptr )
         {
             config = al_load_config_file( configPathStr );
+            ALLEGRO_INFO("Loaded user config from: %s\n", configPathStr);
         }
 
         al_destroy_path( configPath );
