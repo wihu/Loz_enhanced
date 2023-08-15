@@ -56,13 +56,6 @@ enum
     Tile_WallEdge   = 0xF6,
 };
 
-enum CollisionResponse
-{
-    Collision_Unknown,
-    Collision_Free,
-    Collision_Blocked
-};
-
 enum ObjSlot
 {
     MonsterSlot1,

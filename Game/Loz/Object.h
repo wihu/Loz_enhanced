@@ -7,9 +7,9 @@
 
 #pragma once
 
+#include "ObjType.h"
+#include "CollisionType.h"
 
-enum CollisionResponse;
-enum ObjType;
 struct TileCollision;
 class Object;
 
